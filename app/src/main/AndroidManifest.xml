@@ -34,7 +34,8 @@
         </activity>
         <activity android:name=".SplashScreen" />
         <activity android:name=".Doar4" />
-        <activity android:name=".ListaItensDoacao"></activity>
+        <activity android:name=".ListaItensDoacao" />
+        <activity android:name=".Doar3"></activity>
     </application>
 
 </manifest>

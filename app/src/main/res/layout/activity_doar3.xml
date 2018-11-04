@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doar3"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="Qual a cidade? "
+        style="@style/AddDonationFormTextView"
+        />
+
+    <EditText
+        android:id="@+id/itemCidade"
+        style="@style/AddDonationFormEditText"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
+        android:imeOptions="actionNext"
+        />
+
+    <TextView
+        android:text="Qual o Bairro?"
+        style="@style/AddDonationFormTextView"
+        />
+
+    <EditText
+        android:id="@+id/itemBairro"
+        style="@style/AddDonationFormEditText"
+        android:imeOptions="actionNext"
+        />
+
+    <Button
+        android:id="@+id/btnAddDonationNext1"
+        style="@style/AddDonationNextButton"
+        android:layout_marginTop="120dp"
+        android:text="Próximo"
+        />
+
+    <ProgressBar
+        android:id="@+id/addDonationProgressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:progress="25" />
+
+</LinearLayout>

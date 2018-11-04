@@ -30,7 +30,8 @@
             android:background="#E0E0E0"
             android:layout_weight="1"
             android:src="@drawable/ic_photo_camera"
-            />
+
+            android:tooltipText="esta será a foto principal"/>
 
         <LinearLayout
             android:layout_width="match_parent"

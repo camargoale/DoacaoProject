@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="Escolha das fotos:"
+        android:text="Escolha as fotos:"
         style="@style/AddDonationFormTextView"
         android:layout_width="match_parent"
         />

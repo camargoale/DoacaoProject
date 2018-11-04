@@ -5,8 +5,7 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -25,16 +24,17 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".Doar2"/>
+        <activity android:name=".Doar2" />
+        <activity android:name=".Doar1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".Doar1" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".SplashScreen"/>
+        <activity android:name=".SplashScreen" />
+        <activity android:name=".Doar4" />
+        <activity android:name=".ListaItensDoacao"></activity>
     </application>
 
 </manifest>

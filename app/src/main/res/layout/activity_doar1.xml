@@ -14,7 +14,7 @@
         />
 
     <EditText
-        android:id="@+id/descricaoBreve"
+        android:id="@+id/itemNome"
         style="@style/AddDonationFormEditText"
         android:selectAllOnFocus="false"
         android:singleLine="false"
@@ -27,7 +27,7 @@
         />
 
     <EditText
-        android:id="@+id/descricaoCompleta"
+        android:id="@+id/itemDescricao"
         style="@style/AddDonationFormEditText"
         android:layout_weight="1"
         android:imeOptions="actionNext"

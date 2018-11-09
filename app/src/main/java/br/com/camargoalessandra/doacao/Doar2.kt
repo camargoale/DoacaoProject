@@ -7,62 +7,63 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
+import android.widget.ImageView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_doar2.*
 import java.io.File
 
 class Doar2 : AppCompatActivity() {
 
-    companion object {
-        private const val REQUEST_CAMERA: Int = 10
-    }
+//    companion object {
+//        private const val REQUEST_CAMERA: Int = 10
+//    }
 
     var caminhoFoto: String? = null
-    var fotoNro: Int = 0
+//    var fotoNro: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doar2)
 
+        val itemNomeDoacao: String? = intent.getStringExtra("itemNome")
+
+        if(itemNomeDoacao != null) {
+            itemNomeD2.setText(itemNomeDoacao)
+        }
+
         foto1.setOnClickListener() {
-            fotoNro = 1
-            tirarFoto()
+            tirarFoto(1)
         }
 
         foto2.setOnClickListener() {
-            fotoNro = 2
-            tirarFoto()
+            tirarFoto(2)
         }
 
         foto3.setOnClickListener() {
-            fotoNro = 3
-            tirarFoto()
+            tirarFoto(3)
         }
 
         foto4.setOnClickListener() {
-            fotoNro = 4
-            tirarFoto()
+            tirarFoto(4)
         }
 
         foto5.setOnClickListener() {
-            fotoNro = 5
-            tirarFoto()
+            tirarFoto(5)
         }
 
         foto6.setOnClickListener() {
-            fotoNro = 6
-            tirarFoto()
+            tirarFoto(6)
         }
     }
 
-    private fun tirarFoto() {
+    private fun tirarFoto(fotoNro:Int) {
         val tirarFoto = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
         if (tirarFoto.resolveActivity(packageManager) != null) {
             val arquivoFoto = montaArquivoFoto()
             val uriFoto = FileProvider.getUriForFile(this, "${BuildConfig.APPLICATION_ID}.fileprovider", arquivoFoto)
             tirarFoto.putExtra(MediaStore.EXTRA_OUTPUT, uriFoto)
-            startActivityForResult(tirarFoto, REQUEST_CAMERA)
+            startActivityForResult(tirarFoto, fotoNro)
         } else {
             Toast.makeText(this, "Impossivel tirar foto", Toast.LENGTH_SHORT).show()
         }
@@ -82,50 +83,23 @@ class Doar2 : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == REQUEST_CAMERA && resultCode == Activity.RESULT_OK) {
-            if (fotoNro == 1) {
-                GlideApp.with(this)
-                        .load(caminhoFoto)
-                        .placeholder(R.drawable.ic_photo_camera)
-                        .centerCrop()
-                        .into(foto1)
+        if (resultCode == Activity.RESULT_OK) {
+            when(requestCode) {
+                1 -> exibeFoto(foto1)
+                2 -> exibeFoto(foto2)
+                3 -> exibeFoto(foto3)
+                4 -> exibeFoto(foto4)
+                5 -> exibeFoto(foto5)
+                6 -> exibeFoto(foto6)
             }
-            if (fotoNro == 2) {
-                GlideApp.with(this)
-                        .load(caminhoFoto)
-                        .placeholder(R.drawable.ic_photo_camera)
-                        .centerCrop()
-                        .into(foto2)
-            }
-            if (fotoNro == 3) {
-                GlideApp.with(this)
-                        .load(caminhoFoto)
-                        .placeholder(R.drawable.ic_photo_camera)
-                        .centerCrop()
-                        .into(foto3)
-            }
-            if (fotoNro == 4) {
-                GlideApp.with(this)
-                        .load(caminhoFoto)
-                        .placeholder(R.drawable.ic_photo_camera)
-                        .centerCrop()
-                        .into(foto4)
-            }
-            if (fotoNro == 5) {
-                GlideApp.with(this)
-                        .load(caminhoFoto)
-                        .placeholder(R.drawable.ic_photo_camera)
-                        .centerCrop()
-                        .into(foto5)
-            }
-            if (fotoNro == 6) {
-                GlideApp.with(this)
-                        .load(caminhoFoto)
-                        .placeholder(R.drawable.ic_photo_camera)
-                        .centerCrop()
-                        .into(foto5)
-            }
-
         }
+    }
+
+    private fun exibeFoto(imageView: ImageView) {
+        GlideApp.with(this)
+                .load(caminhoFoto)
+                .placeholder(R.drawable.ic_photo_camera)
+                .centerCrop()
+                .into(imageView)
     }
 }

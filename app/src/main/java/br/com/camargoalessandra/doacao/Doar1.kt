@@ -11,14 +11,13 @@ class Doar1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doar1)
 
-        if(itemNome != null && itemDescricao != null) {
-            val doacao = ItemDoacao(itemNome.text.toString(), itemDescricao.text.toString())
-
             btnAddDonationNext1.setOnClickListener() {
-                val addDonationNext = Intent(this, Doar2::class.java)
-                addDonationNext.putExtra("itemNome", doacao.itemNome)
-                addDonationNext.putExtra("itemDescricao", doacao.itemDescricao)
-                startActivity(addDonationNext)
+                if(!itemNome.text.isEmpty() && !itemDescricao.text.isEmpty()) {
+                    val doacao = ItemDoacao(itemNome.text.toString(), itemDescricao.text.toString())
+                    val addDonationNext = Intent(this, Doar2::class.java)
+                    addDonationNext.putExtra("itemNome", doacao.itemNome)
+                    addDonationNext.putExtra("itemDescricao", doacao.itemDescricao)
+                    startActivity(addDonationNext)
             }
         }
     }

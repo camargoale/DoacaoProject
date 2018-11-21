@@ -17,14 +17,13 @@ class SplashScreen : AppCompatActivity() {
 
 
         GlideApp.with(this)
-                 .load("https://drive.google.com/file/d/1K98NjY1stdaJ1zQTLT268xwiwEG64rSw/view")
-                 //.placeholder(R.mipmap.space)
+                 .load(R.drawable.splash)
                  .into(imgLogo)
 
         Handler().postDelayed({
             val main = Intent(this, Main2Activity::class.java)
             startActivity(main)
             finish()
-        }, 2000)
+        }, 4000)
     }
 }

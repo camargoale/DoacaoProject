@@ -27,7 +27,7 @@ class DoacaoAdapter(val doacao: List<String>)
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindView(doacaoNome: String) {
-            itemView.tvNome.text = doacaoNome
+            //itemView.itemNome.s = doacaoNome
         }
 
     }
